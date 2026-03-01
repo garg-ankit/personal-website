@@ -1,0 +1,219 @@
+---
+import ContactCTA from '../components/ContactCTA.astro';
+import Hero from '../components/Hero.astro';
+import Icon from '../components/Icon.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const metrics = [
+	{
+		icon: 'trophy',
+		value: '9+ years',
+		label: 'QA leadership across OTT video, automation, and release readiness',
+	},
+	{
+		icon: 'terminal-window',
+		value: '8+ platforms',
+		label: 'Supported across web, mobile, and Connected TV experiences',
+	},
+	{
+		icon: 'heart',
+		value: '10M+ views',
+		label: 'Protected streaming delivery supported through QA leadership',
+	},
+];
+
+const roles = [
+	{
+		title: 'Principal QA Engineer',
+		company: 'Vimeo',
+		period: 'February 2025 - Present',
+		summary:
+			'Ankit currently leads QA for high-stakes streaming work at Vimeo, including secure 4K DRM playback, low-latency live video, and release quality across web, mobile, and Connected TV. His scope combines platform coverage, vendor coordination, observability, and automation strategy.',
+	},
+	{
+		title: 'Lead QA Analyst',
+		company: 'Vimeo',
+		period: 'February 2020 - January 2025',
+		summary:
+			'In this phase, he scaled QA operations by integrating automation into CI/CD, expanding cross-browser and cross-device coverage, and improving how teams documented defects and communicated release readiness. It was a strong blend of process leadership and day-to-day execution.',
+	},
+	{
+		title: 'Senior QA Analyst',
+		company: 'Vimeo',
+		period: 'July 2017 - January 2020',
+		summary:
+			'As a Senior QA Analyst, Ankit focused on playback validation and release planning for OTT products. He helped strengthen automation strategy and reduce customer-facing production issues through more disciplined test planning and execution.',
+	},
+	{
+		title: 'QA Test Engineer',
+		company: 'Vimeo',
+		period: 'October 2016 - June 2017',
+		summary:
+			'He started at Vimeo with hands-on regression, exploratory, and functional testing across OTT platforms, while also introducing early automation for third-party API validation. That foundation set up the broader QA leadership work that followed.',
+	},
+];
+
+const capabilities = [
+	'OTT video quality across HLS, DASH, DRM, RTMP, and Connected TV platforms',
+	'Automation with Playwright, WebdriverIO, Cypress, Selenium, Puppeteer, Jest, and RTL',
+	'Release readiness through CI/CD, observability, defect prevention, and structured QA workflows',
+	'Tools including Jenkins, GitHub Actions, Postman, BrowserStack, Datadog, Mux, Looker, and FFmpeg',
+];
+---
+
+<BaseLayout
+	title="Experience | Ankit Garg"
+	description="Ankit Garg's QA leadership experience across OTT video, automation, release quality, and platform reliability."
+>
+	<div class="stack gap-20">
+		<main class="wrapper stack gap-8">
+			<Hero
+				title="Experience"
+				tagline="Ankit's experience centers on QA leadership for streaming products, automation at scale, and reliable release delivery across web, mobile, and Connected TV."
+				align="start"
+			/>
+			<ul class="metrics-grid">
+				{
+					metrics.map(({ icon, label, value }) => (
+						<li class="metric-card stack gap-3">
+							<Icon icon={icon} color="var(--accent-regular)" size="2rem" gradient />
+							<p class="metric-value">{value}</p>
+							<p>{label}</p>
+						</li>
+					))
+				}
+			</ul>
+
+			<section class="timeline stack gap-6">
+				<header class="section-header stack gap-2">
+					<h2>Vimeo</h2>
+					<p>
+						Ankit has progressed from QA Test Engineer to Principal QA Engineer, taking on
+						increasing responsibility for automation, release quality, playback reliability, and
+						cross-team coordination.
+					</p>
+				</header>
+
+				<ul class="roles-list">
+					{
+						roles.map(({ company, period, summary, title }) => (
+							<li class="role-card stack gap-4">
+								<div class="role-heading stack gap-1">
+									<p class="role-meta">{company}</p>
+									<h3>{title}</h3>
+									<p class="role-period">{period}</p>
+								</div>
+								<p class="role-summary">{summary}</p>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+
+			<section class="capabilities-section stack gap-6">
+				<header class="section-header stack gap-2">
+					<h2>Core Capabilities</h2>
+					<p>
+						Based on Ankit's resume, these are the areas where he brings the most leverage to a
+						team.
+					</p>
+				</header>
+				<ul class="capabilities-grid">
+					{
+						capabilities.map((item) => (
+							<li class="capability-card">
+								<p>{item}</p>
+							</li>
+						))
+					}
+				</ul>
+			</section>
+		</main>
+		<ContactCTA />
+	</div>
+</BaseLayout>
+
+<style>
+	.metrics-grid,
+	.roles-list,
+	.capabilities-grid {
+		display: grid;
+		gap: 1.5rem;
+		list-style: none;
+		padding: 0;
+		margin: 0;
+	}
+
+	.metric-card,
+	.role-card,
+	.capability-card {
+		padding: 1.5rem;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.metric-value,
+	.role-card h3,
+	.section-header h2 {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.metric-value {
+		font-family: var(--font-brand);
+		font-size: var(--text-3xl);
+		line-height: 1;
+	}
+
+	.metric-card p:not(.metric-value),
+	.section-header p,
+	.role-meta,
+	.role-period,
+	.role-summary,
+	.capability-card p {
+		color: var(--gray-300);
+	}
+
+	.section-header {
+		max-width: 70ch;
+	}
+
+	.timeline .section-header {
+		margin-bottom: 1rem;
+	}
+
+	.role-meta {
+		text-transform: uppercase;
+		letter-spacing: 0.08em;
+		font-size: var(--text-sm);
+		color: var(--gray-400);
+	}
+
+	.role-period {
+		color: var(--gray-400);
+	}
+
+	.role-summary {
+		margin: 0;
+		max-width: 70ch;
+	}
+
+	@media (min-width: 50em) {
+		.metrics-grid,
+		.capabilities-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.metric-card,
+		.role-card,
+		.capability-card {
+			padding: 2rem;
+		}
+
+		.timeline .section-header {
+			margin-bottom: 1.5rem;
+		}
+	}
+</style>
