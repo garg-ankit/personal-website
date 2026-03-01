@@ -1,37 +1,96 @@
 ---
-import { getCollection } from 'astro:content';
 import ContactCTA from '../components/ContactCTA.astro';
-import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
+import Icon from '../components/Icon.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const projects = (await getCollection('work')).sort(
-	(a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf(),
-);
+const focusAreas = [
+	{
+		icon: 'trophy',
+		title: 'Delivery Quality',
+		copy: 'High standards around reliability, ownership, and shipping without unnecessary drama.',
+	},
+	{
+		icon: 'strategy',
+		title: 'Cross-Team Coordination',
+		copy: 'Clear communication and thoughtful alignment across stakeholders, priorities, and execution paths.',
+	},
+	{
+		icon: 'heart',
+		title: 'Healthy Team Culture',
+		copy: 'A supportive working style that helps teams stay functional, collaborative, and effective.',
+	},
+];
 ---
 
 <BaseLayout
-	title="My Work | Jeanine White"
-	description="Learn about Jeanine White's most recent projects"
+	title="Experience | Ankit Garg"
+	description="An overview of the kind of work and impact Ankit Garg is known for."
 >
 	<div class="stack gap-20">
 		<main class="wrapper stack gap-8">
 			<Hero
-				title="My Work"
-				tagline="See my most recent projects below to get an idea of my past experience."
+				title="Experience"
+				tagline="Detailed case studies are still being prepared. For now, this page highlights the kinds of contributions Ankit is best known for."
 				align="start"
 			/>
-			<Grid variant="offset">
+			<ul class="experience-grid">
 				{
-					projects.map((project) => (
-						<li>
-							<PortfolioPreview project={project} />
+					focusAreas.map(({ copy, icon, title }) => (
+						<li class="experience-card stack gap-3">
+							<Icon icon={icon} color="var(--accent-regular)" size="2rem" gradient />
+							<h2>{title}</h2>
+							<p>{copy}</p>
 						</li>
 					))
 				}
-			</Grid>
+			</ul>
+			<p class="note">
+				Full project write-ups, links, and timeline details can be added in the next pass once the
+				final source material is ready.
+			</p>
 		</main>
 		<ContactCTA />
 	</div>
 </BaseLayout>
+
+<style>
+	.experience-grid {
+		display: grid;
+		gap: 1.5rem;
+		list-style: none;
+		padding: 0;
+	}
+
+	.experience-card {
+		padding: 1.5rem;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.experience-card h2 {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.experience-card p,
+	.note {
+		color: var(--gray-300);
+	}
+
+	.note {
+		max-width: 70ch;
+	}
+
+	@media (min-width: 50em) {
+		.experience-grid {
+			grid-template-columns: repeat(3, 1fr);
+		}
+
+		.experience-card {
+			padding: 2rem;
+		}
+	}
+</style>

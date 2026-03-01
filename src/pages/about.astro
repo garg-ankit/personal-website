@@ -4,54 +4,58 @@ import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<BaseLayout title="About | Jeanine White" description="About Jeanine White Lorem Ipsum">
+<BaseLayout
+	title="About | Ankit Garg"
+	description="About Ankit Garg and the way he approaches quality leadership, delivery, and team collaboration."
+>
 	<div class="stack gap-20">
 		<main class="wrapper about">
 			<Hero
-				title="About"
-				tagline="Thanks for stopping by. Read below to learn more about myself and my background."
-			>
-				<img
-					width="1553"
-					height="873"
-					src="/assets/at-work.jpg"
-					alt="Jeanine White at work with a colleague"
-				/>
-			</Hero>
+				title="About Ankit"
+				tagline="Ankit is the kind of Lead QA Engineer teams rely on when strong execution, operational quality, and healthy collaboration all matter at the same time."
+				align="start"
+			/>
 
 			<section>
 				<h2 class="section-title">Background</h2>
 				<div class="content">
 					<p>
-						Lorem ipsum dolor sit amet, <a href="https://astro.build/">Astro</a> makes people happy. Sed
-						do eiusmod tempor incididunt ut labore et dolore magna aliqua. Proin nibh nisl condimentum
-						id venenatis a condimentum vitae. Dapibus ultrices in iaculis nunc. Arcu odio ut sem nulla
-						pharetra diam sit amet. Diam quis enim lobortis scelerisque fermentum dui faucibus in ornare.
+						Ankit Garg is a Lead QA Engineer whose reputation is grounded in reliable delivery,
+						high standards, and the ability to work well with the people around him. A former
+						teammate described him as consistently positive, supportive, and easy to collaborate
+						with, which is a meaningful signal on any fast-moving product team.
 					</p>
 					<p>
-						Arcu dui vivamus arcu felis bibendum ut tristique et egestas. Eget gravida cum sociis
-						natoque penatibus. Cras fermentum odio eu feugiat pretium nibh. Proin nibh nisl
-						condimentum id venenatis. Porta nibh venenatis cras sed felis eget velit. Id diam vel
-						quam elementum pulvinar etiam non.
-					</p>
-					<p>
-						Ultrices tincidunt arcu non sodales neque sodales ut. Sed enim ut sem viverra aliquet
-						eget sit amet. Lacus luctus accumsan tortor posuere ac ut consequat semper viverra.
-						Viverra accumsan in nisl nisi scelerisque eu ultrices. In massa tempor nec feugiat nisl
-						pretium fusce.
+						At Vimeo, he contributed to a high-profile product effort where the team maintained an
+						exceptional quality bar for roughly two and a half years without a critical bug or
+						rollback. That outcome speaks to discipline, thoughtful planning, and real ownership.
 					</p>
 				</div>
 			</section>
 			<section>
-				<h2 class="section-title">Education</h2>
+				<h2 class="section-title">How He Works</h2>
 				<div class="content">
-					<p>Corporis voluptates tenetur laudantium.</p>
+					<p>
+						Ankit stands out for how he combines execution with team health. He is described as
+						approachable, generous with his time, and willing to help regardless of who reaches
+						out. That kind of consistency improves collaboration and makes teams more resilient.
+					</p>
+					<p>
+						He also brings structure and clarity to complex initiatives. Rather than relying on
+						heroics, he helps work move forward through coordination, accountability, and steady
+						follow-through.
+					</p>
 				</div>
 			</section>
 			<section>
-				<h2 class="section-title">Skills</h2>
+				<h2 class="section-title">What He Brings</h2>
 				<div class="content">
-					<p>officia unde omnis</p>
+					<ul>
+						<li>Integrity and self-motivation</li>
+						<li>Dependable execution on high-visibility work</li>
+						<li>Operational excellence and quality-minded delivery</li>
+						<li>Thoughtful coordination that keeps teams aligned</li>
+					</ul>
 				</div>
 			</section>
 		</main>
@@ -65,12 +69,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		display: flex;
 		flex-direction: column;
 		gap: 3.5rem;
-	}
-
-	img {
-		margin-top: 1.5rem;
-		border-radius: 1.5rem;
-		box-shadow: var(--shadow-md);
 	}
 
 	section {
@@ -99,6 +97,15 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	.content :global(a:hover),
 	.content :global(a:focus) {
 		text-decoration-color: currentColor;
+	}
+
+	.content :global(ul) {
+		margin: 0;
+		padding-left: 1.25rem;
+	}
+
+	.content :global(li + li) {
+		margin-top: 0.75rem;
 	}
 
 	@media (min-width: 50em) {

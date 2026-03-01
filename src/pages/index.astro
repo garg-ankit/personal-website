@@ -1,5 +1,4 @@
 ---
-import { getCollection } from 'astro:content';
 // Component Imports
 import CallToAction from '../components/CallToAction.astro';
 // Page section components
@@ -8,42 +7,73 @@ import Grid from '../components/Grid.astro';
 import Hero from '../components/Hero.astro';
 import Icon from '../components/Icon.astro';
 import Pill from '../components/Pill.astro';
-import PortfolioPreview from '../components/PortfolioPreview.astro';
 import Skills from '../components/Skills.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-// Content Fetching: List four most recent work projects
-const projects = (await getCollection('work'))
-	.sort((a, b) => b.data.publishDate.valueOf() - a.data.publishDate.valueOf())
-	.slice(0, 4);
+const differentiators = [
+	{
+		icon: 'heart',
+		title: 'Supportive teammate',
+		copy: 'Brings a consistently positive, approachable presence and makes time for the people around him.',
+	},
+	{
+		icon: 'trophy',
+		title: 'High standard of quality',
+		copy: 'Contributes to delivery environments where reliability is expected, not treated as a nice surprise.',
+	},
+	{
+		icon: 'strategy',
+		title: 'Clear operator',
+		copy: 'Helps teams move complex work forward through structure, coordination, and accountability.',
+	},
+	{
+		icon: 'terminal-window',
+		title: 'Strong ownership',
+		copy: 'Shows integrity, self-motivation, and follow-through from planning through execution.',
+	},
+];
 
-// Full Astro Component Syntax:
-// https://docs.astro.build/basics/astro-components/
+const recommendationHighlights = [
+	'Praised for being approachable, generous with his time, and easy to work with.',
+	'Recognized as a key contributor to a high-profile product that shipped for roughly 2.5 years without a critical bug or rollback.',
+	'Trusted for bringing structure, clarity, and operational excellence to highly functional teams.',
+];
 ---
 
-<BaseLayout>
+<BaseLayout
+	title="Ankit Garg | Lead QA Engineer"
+	description="Lead QA Engineer focused on dependable execution, thoughtful coordination, and strong team culture."
+>
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
-					title="Hello, my name is Jeanine White"
-					tagline="I am a Creative Developer who is currently based in Portland, Oregon."
+					title="Ankit Garg"
+					tagline="Lead QA Engineer focused on dependable execution, thoughtful coordination, and the kind of team culture that helps ambitious work ship well."
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> Developer</Pill>
-						<Pill><Icon icon="microphone-stage" size="1.33em" /> Speaker</Pill>
-						<Pill><Icon icon="pencil-line" size="1.33em" /> Writer</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> QA Leadership</Pill>
+						<Pill><Icon icon="trophy" size="1.33em" /> Delivery Excellence</Pill>
+						<Pill><Icon icon="heart" size="1.33em" /> Team Builder</Pill>
 					</div>
 				</Hero>
 
-				<img
-					alt="Jeanine White smiling in a red plaid shirt and tortoise shell glasses"
-					width="480"
-					height="620"
-					src="/assets/portrait.jpg"
-				/>
+				<aside class="hero-card stack gap-4">
+					<p class="eyebrow">Recommendation Snapshot</p>
+					<blockquote>
+						“Approachable, always willing to help, and generous with his time.”
+					</blockquote>
+					<p class="highlight">
+						On a high-profile product, his team shipped for roughly 2.5 years without a single
+						critical bug or rollback.
+					</p>
+					<p class="supporting">
+						That kind of reliability comes from discipline, ownership, and strong cross-team
+						coordination.
+					</p>
+				</aside>
 			</header>
 
 			<Skills />
@@ -52,16 +82,21 @@ const projects = (await getCollection('work'))
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Selected Work</h3>
-					<p>Take a look below at some of my featured work for clients from the past few years.</p>
+					<h3>What Teams Can Expect</h3>
+					<p>
+						This first pass focuses on the qualities that stand out most clearly in Ankit's track
+						record and teammate feedback.
+					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="offset">
 						{
-							projects.map((project) => (
-								<li>
-									<PortfolioPreview project={project} />
+							differentiators.map(({ copy, icon, title }) => (
+								<li class="value-card stack gap-3">
+									<Icon icon={icon} color="var(--accent-regular)" size="2rem" gradient />
+									<h4>{title}</h4>
+									<p>{copy}</p>
 								</li>
 							))
 						}
@@ -69,8 +104,8 @@ const projects = (await getCollection('work'))
 				</div>
 
 				<div class="cta">
-					<CallToAction href="/work/">
-						View All
+					<CallToAction href="/about/">
+						Read More
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -78,19 +113,19 @@ const projects = (await getCollection('work'))
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Mentions</h3>
+					<h3>Recommendation Highlights</h3>
 					<p>
-						I have been fortunate enough to receive praise for my work in several publications. Take
-						a look below to learn more.
+						Based on a recommendation from a former Vimeo teammate who worked closely with Ankit on
+						a high-functioning product team.
 					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
 						{
-							['Medium', 'BuzzFeed', 'The Next Web', 'awwwards.', 'TechCrunch'].map((brand) => (
+							recommendationHighlights.map((highlight) => (
 								<li class="mention-card">
-									<p>{brand}</p>
+									<p>{highlight}</p>
 								</li>
 							))
 						}
@@ -115,12 +150,36 @@ const projects = (await getCollection('work'))
 		display: none;
 	}
 
-	.hero img {
-		aspect-ratio: 5 / 4;
-		object-fit: cover;
-		object-position: top;
+	.hero-card {
+		width: 100%;
+		padding: 1.5rem;
+		border: 1px solid var(--gray-800);
 		border-radius: 1.5rem;
+		background: var(--gradient-subtle);
 		box-shadow: var(--shadow-md);
+	}
+
+	.eyebrow {
+		font-size: var(--text-sm);
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: var(--gray-400);
+	}
+
+	blockquote {
+		margin: 0;
+		font-family: var(--font-brand);
+		font-size: var(--text-xl);
+		line-height: 1.3;
+		color: var(--gray-0);
+	}
+
+	.highlight {
+		color: var(--gray-200);
+	}
+
+	.supporting {
+		color: var(--gray-400);
 	}
 
 	@media (min-width: 50em) {
@@ -129,18 +188,13 @@ const projects = (await getCollection('work'))
 			grid-template-columns: 6fr 4fr;
 			padding-inline: 2.5rem;
 			gap: 3.75rem;
+			align-items: center;
 		}
 
 		.roles {
 			margin-top: 0.5rem;
 			display: flex;
 			gap: 0.5rem;
-		}
-
-		.hero img {
-			aspect-ratio: 3 / 4;
-			border-radius: 4.5rem;
-			object-fit: cover;
 		}
 	}
 
@@ -229,10 +283,9 @@ const projects = (await getCollection('work'))
 
 	.mention-card {
 		display: flex;
-		height: 7rem;
-		justify-content: center;
+		min-height: 10rem;
+		padding: 1.5rem;
 		align-items: center;
-		text-align: center;
 		border: 1px solid var(--gray-800);
 		border-radius: 1.5rem;
 		color: var(--gray-300);
@@ -240,10 +293,32 @@ const projects = (await getCollection('work'))
 		box-shadow: var(--shadow-sm);
 	}
 
+	.value-card {
+		padding: 1.5rem;
+		border: 1px solid var(--gray-800);
+		border-radius: 1.5rem;
+		background: var(--gradient-subtle);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.value-card h4 {
+		font-size: var(--text-xl);
+		color: var(--gray-0);
+	}
+
+	.value-card p {
+		color: var(--gray-300);
+	}
+
 	@media (min-width: 50em) {
 		.mention-card {
 			border-radius: 1.5rem;
-			height: 9.5rem;
+			min-height: 12rem;
+			padding: 2rem;
+		}
+
+		.value-card {
+			padding: 2rem;
 		}
 	}
 </style>
