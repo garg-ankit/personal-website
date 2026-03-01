@@ -76,7 +76,7 @@ const capabilities = [
 				{
 					metrics.map(({ icon, label, value }) => (
 						<li class="metric-card stack gap-3">
-							<Icon icon={icon} color="var(--accent-regular)" size="2rem" gradient />
+							<Icon icon={icon} color="var(--accent-regular)" size="2.35rem" gradient />
 							<p class="metric-value">{value}</p>
 							<p>{label}</p>
 						</li>
@@ -114,8 +114,8 @@ const capabilities = [
 				<header class="section-header stack gap-2">
 					<h2>Core Capabilities</h2>
 					<p>
-						Based on Ankit's resume, these are the areas where he brings the most leverage to a
-						team.
+						These are the areas where Ankit brings the strongest combination of quality
+						leadership, technical depth, and operational impact.
 					</p>
 				</header>
 				<ul class="capabilities-grid">
@@ -185,6 +185,10 @@ const capabilities = [
 		margin-bottom: 1rem;
 	}
 
+	.capabilities-section .section-header {
+		margin-bottom: 1rem;
+	}
+
 	.role-meta {
 		text-transform: uppercase;
 		letter-spacing: 0.08em;
@@ -214,6 +218,10 @@ const capabilities = [
 		}
 
 		.timeline .section-header {
+			margin-bottom: 1.5rem;
+		}
+
+		.capabilities-section .section-header {
 			margin-bottom: 1.5rem;
 		}
 	}
