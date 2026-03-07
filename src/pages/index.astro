@@ -92,10 +92,14 @@ const workingStyle = [
 					<Grid variant="offset">
 						{
 							focusAreas.map(({ copy, icon, title }) => (
-								<li class="value-card stack gap-3">
-									<Icon icon={icon} color="var(--accent-regular)" size="2rem" gradient />
-									<h4>{title}</h4>
-									<p>{copy}</p>
+								<li class="value-card">
+									<div class="value-card-icon">
+										<Icon icon={icon} color="var(--accent-regular)" size="3.25rem" gradient />
+									</div>
+									<div class="value-card-copy stack gap-2">
+										<h4>{title}</h4>
+										<p>{copy}</p>
+									</div>
 								</li>
 							))
 						}
@@ -292,11 +296,37 @@ const workingStyle = [
 	}
 
 	.value-card {
+		display: flex;
+		align-items: flex-start;
+		gap: 1.25rem;
 		padding: 1.5rem;
 		border: 1px solid var(--gray-800);
 		border-radius: 1.5rem;
 		background: var(--gradient-subtle);
 		box-shadow: var(--shadow-sm);
+	}
+
+	.value-card-icon {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex: 0 0 5.5rem;
+		width: 5.5rem;
+		height: 5.5rem;
+		border-radius: 1.5rem;
+		background:
+			linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent),
+			var(--gray-999_40);
+		border: 1px solid var(--gray-800);
+		box-shadow: var(--shadow-sm);
+	}
+
+	.value-card-copy {
+		display: flex;
+		flex: 1 1 auto;
+		flex-direction: column;
+		justify-content: center;
+		min-width: 0;
 	}
 
 	.value-card h4 {
@@ -316,7 +346,15 @@ const workingStyle = [
 		}
 
 		.value-card {
+			gap: 1.5rem;
 			padding: 2rem;
+		}
+
+		.value-card-icon {
+			flex-basis: 6rem;
+			width: 6rem;
+			height: 6rem;
+			border-radius: 1.75rem;
 		}
 	}
 </style>
