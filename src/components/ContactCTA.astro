@@ -1,14 +1,24 @@
 ---
 import CallToAction from './CallToAction.astro';
 import Icon from './Icon.astro';
+
+interface Props {
+	showButton?: boolean;
+}
+
+const { showButton = true } = Astro.props;
 ---
 
 <aside>
 	<h2>If you would like to know a bit more about how I work</h2>
-	<CallToAction href="/about/">
-		About Me
-		<Icon icon="paper-plane-tilt" size="1.2em" />
-	</CallToAction>
+	{
+		showButton && (
+			<CallToAction href="/about/">
+				About Me
+				<Icon icon="paper-plane-tilt" size="1.2em" />
+			</CallToAction>
+		)
+	}
 </aside>
 
 <style>

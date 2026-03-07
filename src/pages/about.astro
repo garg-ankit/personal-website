@@ -1,5 +1,4 @@
 ---
-import ContactCTA from '../components/ContactCTA.astro';
 import Hero from '../components/Hero.astro';
 import BaseLayout from '../layouts/BaseLayout.astro';
 ---
@@ -57,8 +56,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</section>
 		</main>
-
-		<ContactCTA />
 	</div>
 </BaseLayout>
 
@@ -67,6 +64,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		display: flex;
 		flex-direction: column;
 		gap: 3.5rem;
+		padding-bottom: 4rem;
 	}
 
 	section {
@@ -110,6 +108,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.about {
 			display: grid;
 			grid-template-columns: 1fr 60% 1fr;
+			padding-bottom: 6rem;
 		}
 
 		.about > :global(:first-child) {
