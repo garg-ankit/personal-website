@@ -11,67 +11,67 @@ import Skills from '../components/Skills.astro';
 // Layout import — provides basic page elements: <head>, <nav>, <footer> etc.
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const differentiators = [
+const focusAreas = [
 	{
 		icon: 'heart',
-		title: 'Supportive teammate',
-		copy: 'Brings a consistently positive, approachable presence and makes time for the people around him.',
+		title: 'Collaboration',
+		copy: 'I try to be approachable, helpful, and easy to work with across teams.',
 	},
 	{
 		icon: 'trophy',
-		title: 'High standard of quality',
-		copy: 'Contributes to delivery environments where reliability is expected, not treated as a nice surprise.',
+		title: 'Quality',
+		copy: 'I care about reliable releases, practical QA coverage, and steady follow-through.',
 	},
 	{
 		icon: 'strategy',
-		title: 'Clear operator',
-		copy: 'Helps teams move complex work forward through structure, coordination, and accountability.',
+		title: 'Coordination',
+		copy: 'I like bringing structure to complex work without making the process heavier than it needs to be.',
 	},
 	{
 		icon: 'terminal-window',
-		title: 'Strong ownership',
-		copy: 'Shows integrity, self-motivation, and follow-through from planning through execution.',
+		title: 'Automation',
+		copy: 'I use automation where it meaningfully improves confidence, speed, and repeatability.',
 	},
 ];
 
-const recommendationHighlights = [
-	'Praised for being approachable, generous with his time, and easy to work with.',
-	'Recognized as a key contributor to a high-profile product that shipped for roughly 2.5 years without a critical bug or rollback.',
-	'Trusted for bringing structure, clarity, and operational excellence to highly functional teams.',
+const workingStyle = [
+	'I value clear communication and realistic expectations.',
+	'I try to help teams ship carefully and consistently.',
+	'I care about calm collaboration when releases get complicated.',
 ];
 ---
 
 <BaseLayout
 	title="Ankit Garg | Lead QA Engineer"
-	description="Lead QA Engineer focused on dependable execution, thoughtful coordination, and strong team culture."
+	description="I work in QA across streaming products, with a focus on reliable releases, automation, and good collaboration."
 >
 	<div class="stack gap-20 lg:gap-48">
 		<div class="wrapper stack gap-8 lg:gap-20">
 			<header class="hero">
 				<Hero
 					title="Ankit Garg"
-					tagline="Lead QA Engineer focused on dependable execution, thoughtful coordination, and the kind of team culture that helps ambitious work ship well."
+					tagline="I work in QA across streaming products, with a focus on reliable releases, practical automation, and good collaboration."
 					align="start"
 				>
 					<div class="roles">
-						<Pill><Icon icon="code" size="1.33em" /> QA Leadership</Pill>
-						<Pill><Icon icon="trophy" size="1.33em" /> Delivery Excellence</Pill>
-						<Pill><Icon icon="heart" size="1.33em" /> Team Builder</Pill>
+						<Pill><Icon icon="code" size="1.33em" /> QA</Pill>
+						<Pill><Icon icon="trophy" size="1.33em" /> Release Quality</Pill>
+						<Pill><Icon icon="heart" size="1.33em" /> Collaboration</Pill>
 					</div>
 				</Hero>
 
 				<aside class="hero-card stack gap-4">
-					<p class="eyebrow">Recommendation Snapshot</p>
+					<p class="eyebrow">A Note From a Teammate</p>
 					<blockquote>
 						“Approachable, always willing to help, and generous with his time.”
 					</blockquote>
 					<p class="highlight">
-						On a high-profile product, his team shipped for roughly 2.5 years without a single
-						critical bug or rollback.
+						One part of my Vimeo work I am especially grateful for was being part of a team that
+						went roughly two and a half years without a critical bug or rollback on a high-profile
+						product.
 					</p>
 					<p class="supporting">
-						That kind of reliability comes from discipline, ownership, and strong cross-team
-						coordination.
+						I see that as a reflection of careful work, strong teamwork, and shared ownership.
 					</p>
 				</aside>
 			</header>
@@ -82,17 +82,16 @@ const recommendationHighlights = [
 		<main class="wrapper stack gap-20 lg:gap-48">
 			<section class="section with-background with-cta">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>What Teams Can Expect</h3>
+					<h3>How I Like to Work</h3>
 					<p>
-						This first pass focuses on the qualities that stand out most clearly in Ankit's track
-						record and teammate feedback.
+						A few themes shape how I approach QA, release work, and collaboration across teams.
 					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="offset">
 						{
-							differentiators.map(({ copy, icon, title }) => (
+							focusAreas.map(({ copy, icon, title }) => (
 								<li class="value-card stack gap-3">
 									<Icon icon={icon} color="var(--accent-regular)" size="2rem" gradient />
 									<h4>{title}</h4>
@@ -105,7 +104,7 @@ const recommendationHighlights = [
 
 				<div class="cta">
 					<CallToAction href="/about/">
-						Read More
+						About Me
 						<Icon icon="arrow-right" size="1.2em" />
 					</CallToAction>
 				</div>
@@ -113,17 +112,16 @@ const recommendationHighlights = [
 
 			<section class="section with-background bg-variant">
 				<header class="section-header stack gap-2 lg:gap-4">
-					<h3>Recommendation Highlights</h3>
+					<h3>What I Care About</h3>
 					<p>
-						Based on a recommendation from a former Vimeo teammate who worked closely with Ankit on
-						a high-functioning product team.
+						These are the things I try to bring to the teams I work with.
 					</p>
 				</header>
 
 				<div class="gallery">
 					<Grid variant="small">
 						{
-							recommendationHighlights.map((highlight) => (
+							workingStyle.map((highlight) => (
 								<li class="mention-card">
 									<p>{highlight}</p>
 								</li>
